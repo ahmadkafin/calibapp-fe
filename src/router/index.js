@@ -7,7 +7,7 @@ const routes = [
   {
     path: '/',
     redirect: {
-      name: 'home'
+      name: 'Home'
     },
     meta: { requiresAuth: true },
   },
