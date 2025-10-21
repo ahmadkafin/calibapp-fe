@@ -1,0 +1,57 @@
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import {
+    faArrowLeftLong,
+    faChartColumn,
+    faCheck,
+    faChevronLeft,
+    faChevronRight,
+    faCircleCheck,
+    faCog,
+    faDashboard,
+    faEye,
+    faFile,
+    faMagnifyingGlass,
+    faPencil,
+    faPeopleGroup,
+    faPlusCircle,
+    faRightFromBracket,
+    fas,
+    faCheckCircle,
+    faXmarkCircle,
+    faTable,
+    faTrash,
+    faXmark,
+    faPhone,
+    faRobot,
+    faSignOut,
+} from '@fortawesome/free-solid-svg-icons';
+
+library.add(
+    faArrowLeftLong,
+    fas,
+    faPhone,
+    faCheckCircle,
+    faXmarkCircle,
+    faDashboard,
+    faChartColumn,
+    faTable,
+    faMagnifyingGlass,
+    faPlusCircle,
+    faFile,
+    faXmark,
+    faCog,
+    faTrash,
+    faPencil,
+    faCheck,
+    faRightFromBracket,
+    faEye,
+    faChevronLeft,
+    faChevronRight,
+    faCircleCheck,
+    faPeopleGroup,
+    faRobot,
+    faSignOut
+)
+
+export { FontAwesomeIcon }
