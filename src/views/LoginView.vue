@@ -108,6 +108,18 @@ export default {
       showMask: false,
     }
   },
+  mounted() {
+    this.setVh()
+    window.addEventListener('resize', this.setVh)
+  },
+  beforeUnmount() {
+    window.removeEventListener('resize', this.setVh)
+  },
+  methods: {
+    setVh() {
+      document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`)
+    },
+  },
   methods: {
     submitLogin(data) {
       console.log(data)
@@ -131,7 +143,7 @@ export default {
 }
 </script>
 <style scoped>
-.page-wrap {
+/* .page-wrap {
   min-height: calc(var(--vh, 1vh) * 100);
   width: 100%;
   display: flex;
@@ -139,6 +151,18 @@ export default {
   flex-direction: column;
   box-sizing: border-box;
   padding-bottom: env(safe-area-inset-bottom);
+} */
+
+.page-wrap {
+  min-height: calc(var(--vh, 1vh) * 100);
+  min-height: 100vh; /* fallback */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding-bottom: env(safe-area-inset-bottom);
+  overflow: auto;
 }
 
 .row .custom-image {
