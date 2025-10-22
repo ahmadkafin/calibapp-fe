@@ -162,7 +162,7 @@ export default {
   flex-direction: column;
   box-sizing: border-box;
   padding-bottom: env(safe-area-inset-bottom);
-  overflow: auto;
+  overflow: hidden;
 }
 
 .row .custom-image {
