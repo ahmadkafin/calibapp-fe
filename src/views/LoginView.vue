@@ -52,7 +52,8 @@
                   </span>
                   <input
                     v-bind="field"
-                    type="password"
+                    :type="showMask ? 'text' : 'password'"
+                    å
                     class="form-control"
                     placeholder="Password"
                     :class="{
@@ -60,8 +61,8 @@
                       'is-valid': meta.touched && meta.valid,
                     }"
                   />
-                  <span class="input-group-text" id="phone-addon">
-                    <font-awesome-icon :icon="['fas', 'eye']" />
+                  <span class="input-group-text" id="mask-addon" @click="changeMask">
+                    <font-awesome-icon :icon="['fas', !showMask ? 'eye' : 'eye-slash']" />
                   </span>
                 </div>
               </Field>
@@ -101,6 +102,7 @@ export default {
     return {
       isLoading: false,
       schema,
+      showMask: false,
     }
   },
   methods: {
@@ -118,6 +120,9 @@ export default {
           this.$toast.error('Gagal Login: ' + error)
         },
       )
+    },
+    changeMask() {
+      this.showMask = !this.showMask
     },
   },
 }
