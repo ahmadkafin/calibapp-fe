@@ -1,5 +1,5 @@
 <template>
-  <div class="container pt-5">
+  <div class="container">
     <div class="position-relative page-wrap">
       <div class="row">
         <img src="@@/assets/images/logo.png" alt="" class="rounded mx-auto d-block custom-image" />

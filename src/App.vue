@@ -22,10 +22,6 @@ body {
   position: relative;
 }
 
-.page-wrap {
-  overflow: auto;
-}
-
 .overlay {
   position: absolute;
   inset: 0;
