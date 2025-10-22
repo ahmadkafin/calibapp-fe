@@ -131,13 +131,14 @@ export default {
 }
 </script>
 <style scoped>
-/* tetap pakai style image kamu */
 .page-wrap {
-  min-height: 100dvh;
+  min-height: calc(var(--vh, 1vh) * 100);
   width: 100%;
   display: flex;
   justify-content: center;
   flex-direction: column;
+  box-sizing: border-box;
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
 .row .custom-image {
@@ -170,12 +171,10 @@ export default {
   }
 }
 
-/* opsional: samakan padding / gap antar form group */
 .form .input-group {
   width: 100%;
 }
 
-/* jika loader punya ukuran khusus, center-kan: */
 .loader {
   min-height: calc(1.5rem + 0.5rem); /* contoh supaya tinggi sama dengan button */
   display: flex;

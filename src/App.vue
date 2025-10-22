@@ -8,12 +8,22 @@ import { RouterView } from 'vue-router'
 </template>
 
 <style>
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
 #app {
   min-height: 100dvh;
   background: url('/assets/images/bg-first.png') center/cover no-repeat;
   overflow: hidden;
   /* display: grid; */
   position: relative;
+}
+
+.page-wrap {
+  overflow: auto;
 }
 
 .overlay {
