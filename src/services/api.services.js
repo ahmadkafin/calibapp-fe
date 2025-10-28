@@ -9,8 +9,8 @@ class ApiServices {
         return axios.get(URL + `/kalibrasi/getRuangan`, { headers: request.requestHeader() })
     }
 
-    getData(namaRuangan) {
-        return axios.get(URL + `/kalibrasi/get?nama_ruangan=${namaRuangan}`, { headers: request.requestHeader() })
+    getData(namaRuangan, filterDiff) {
+        return axios.get(URL + `/kalibrasi/get?nama_ruangan=${namaRuangan}&filter_diff=${filterDiff}`, { headers: request.requestHeader() })
     }
 
     getDataForFilter() {

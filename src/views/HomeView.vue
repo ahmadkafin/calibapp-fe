@@ -39,6 +39,14 @@
               <b>{{ item.counting }} alat </b> {{ item.subTitle }}
             </p>
           </div>
+          <div class="card-footer">
+            <div class="d-grid">
+              <button class="btn btn-sm btn-info" @click="showFilterDiffDays(item.diffDays)">
+                Lihat
+                <font-awesome-icon :icon="['fas', 'chevron-right']" />
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -75,6 +83,7 @@ export default {
       sixtyDays: 0,
       ninetyDays: 0,
       dataCalib: [],
+      filterDiff: '',
     }
   },
   mounted() {
@@ -113,6 +122,7 @@ export default {
     },
     pickRuangan(item) {
       this.currentSelected = item
+      this.filterDiff = ''
       this.loadData()
     },
     loadDataRuangan() {
@@ -134,7 +144,7 @@ export default {
     loadData() {
       this.isLoading = true
       apiServices
-        .getData(this.currentSelected)
+        .getData(this.currentSelected, this.filterDiff)
         .then((response) => {
           this.isLoading = false
           const list = Array.isArray(response.data?.data) ? response.data.data : []
@@ -150,6 +160,11 @@ export default {
     logout() {
       this.$store.dispatch('logout')
     },
+    showFilterDiffDays(item) {
+      this.currentSelected = ''
+      this.filterDiff = item
+      this.loadData()
+    },
     populateDataCalib() {
       this.dataCalib = [
         {
@@ -159,6 +174,7 @@ export default {
           counting: this.aman,
           title: 'Kalibrasi Aman > 90 hari',
           subTitle: 'Masih dalam berlaku kalibrasi',
+          diffDays: null,
         },
         {
           name: '≤ 90 hari',
@@ -167,6 +183,7 @@ export default {
           counting: this.ninetyDays,
           title: 'Kalibrasi akan berakhir ≤ 90 hari',
           subTitle: 'Akan berakhir masa kalibrasi',
+          diffDays: 90,
         },
         {
           name: '≤ 60 hari',
@@ -175,6 +192,7 @@ export default {
           counting: this.sixtyDays,
           title: 'Kalibrasi akan berakhir ≤ 60 hari',
           subTitle: 'Akan berakhir masa kalibrasi',
+          diffDays: 60,
         },
         {
           name: '≤ 30 hari',
@@ -183,6 +201,7 @@ export default {
           counting: this.thirtyDays,
           title: 'Kalibrasi akan berakhir ≤ 30 hari',
           subTitle: 'Akan berakhir masa kalibrasi',
+          diffDays: 30,
         },
         {
           name: '0 hari',
@@ -191,6 +210,7 @@ export default {
           counting: this.zeroDays,
           title: 'Kalibrasi Expire (Segera Lakukan Kalibrasi)',
           subTitle: 'Sudah berakhir masa kalibrasi',
+          diffDays: 0,
         },
       ]
     },

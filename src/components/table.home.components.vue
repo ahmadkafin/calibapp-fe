@@ -34,6 +34,7 @@
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Nomor Sertifikat</th>
+                <th scope="col">Nama Ruangan</th>
                 <th scope="col">Nomor Internal</th>
                 <th scope="col">Alat Kesehatan</th>
                 <th scope="col">Nomor Seri</th>
@@ -51,6 +52,7 @@
               <tr v-for="(item, index) of calibdata" :key="index">
                 <th scope="row">{{ index + 1 }}</th>
                 <td>{{ item.nomor_sertifikat }}</td>
+                <td>{{ item.nama_ruangan }}</td>
                 <td>{{ item.no_internal }}</td>
                 <td>{{ item.alat_kesehatan }}</td>
                 <td>{{ item.nomor_seri }}</td>
